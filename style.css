@@ -1,0 +1,280 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #007bff; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ddd;
+}
+
+.language-switcher {
+    display: flex;
+    margin-left: 20px;
+}
+
+.language-switcher button {
+    background: none;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.language-switcher button.active {
+    background-color: #fff;
+    color: #007bff;
+}
+
+.language-switcher button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.hero {
+    padding: 80px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.about {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.about p {
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.services {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #007bff;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.service-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.service-column li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.service-column li img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.service-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.advantages {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.advantages h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #007bff;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.advantage-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.advantage-column li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.advantage-column li img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.advantage-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.blue-button {
+    background-color: #007bff;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-links li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .language-switcher {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .hero {
+        padding: 60px 15px;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .services-grid, .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-image, .advantage-image {
+        order: -1; 
+        margin-bottom: 20px;
+    }
+}
