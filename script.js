@@ -145,11 +145,10 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             const lang = this.getAttribute('data-lang');
             setLanguage(lang);
-            localStorage.setItem('language', lang); // Persistir a escolha do idioma
+            localStorage.setItem('language', lang);
         });
     });
 
-    // Define a linguagem inicial com base no localStorage ou padrão
     const storedLanguage = localStorage.getItem('language');
     const initialLang = storedLanguage || 'pt';
     setLanguage(initialLang);
@@ -164,7 +163,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Atualiza a classe 'active' nos botões de idioma para refletir a seleção
         langButtons.forEach(btn => btn.classList.remove('active'));
         const activeButton = document.querySelector(`.language-switcher button[data-lang="${lang}"]`);
         if (activeButton) {
@@ -172,24 +170,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Menu Hambúrguer
     const toggleButton = document.querySelector('.toggle-button');
     const navLinks = document.querySelector('.nav-links');
     const navLinksA = document.querySelectorAll('.nav-links li a');
 
-    if (toggleButton && navLinks) {
-        toggleButton.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            toggleButton.classList.toggle('active'); // Adiciona a classe 'active' ao botão também para a animação
-        });
-    }
+    console.log('toggleButton:', toggleButton);
+    console.log('navLinks:', navLinks);
 
-    navLinksA.forEach(link => {
-        link.addEventListener('click', () => {
+    if (toggleButton && navLinks) {
+        toggleButton.addEventListener('click', function() {
+            console.log('Dentro do clique do botão hambúrguer - this:', this);
             if (navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
-                toggleButton.classList.remove('active'); // Remove a classe 'active' do botão ao fechar pelo link
+            } else {
+                navLinks.classList.add('active');
             }
+            if (this.classList.contains('active')) {
+                this.classList.remove('active');
+            } else {
+                this.classList.add('active');
+            }
+            console.log('Botão hambúrguer clicado. navLinks.classList:', navLinks.classList);
+            console.log('Botão hambúrguer clicado. toggleButton.classList:', this.classList);
         });
-    });
+    }
 });
