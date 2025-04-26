@@ -1,116 +1,180 @@
+
+HTML
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Worker Reformas</title>
+    <title>New Works</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./img/logo-nav.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">New Worker</div>
-            <ul class="nav-links">
-                <li><a href="#sobre" class="lang-pt">Sobre nós</a><a href="#sobre" class="lang-en hidden">About us</a><a href="#sobre" class="lang-es hidden">Sobre nosotros</a></li>
-                <li><a href="#servicos" class="lang-pt">Serviços</a><a href="#servicos" class="lang-en hidden">Services</a><a href="#servicos" class="lang-es hidden">Servicios</a></li>
-                <li><a href="#vantagens" class="lang-pt">Por que nos escolher?</a><a href="#vantagens" class="lang-en hidden">Why choose us?</a><a href="#vantagens" class="lang-es hidden">¿Por qué elegirnos?</a></li>
-                <li><a href="#contato" class="lang-pt">Contato</a><a href="#contato" class="lang-en hidden">Contact</a><a href="#contato" class="lang-es hidden">Contacto</a></li>
-                <li class="language-switcher">
-                    <button data-lang="pt" class="active">PT</button>
-                    <button data-lang="en">EN</button>
-                    <button data-lang="es">ES</button>
-                </li>
-            </ul>
+            <div class="logo">
+                <a href="#">
+                    <img src="./img/logo-nav.png" alt="logo nav">
+                </a>
+            </div>
+            <button class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="#sobre" data-i18n="nav.sobre">Sobre nós</a></li>
+                    <li><a href="#vantagens" data-i18n="nav.sobre">Vantagens</a></li>
+                    <li><a href="#servicos" data-i18n="nav.servicos">Serviços</a></li>
+                    <li><a href="#contato" data-i18n="nav.contato">Contato</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button data-lang="pt"><img src="./img/pt.png" alt="Português"></button>
+                    <button data-lang="es"><img src="img/es.png" alt="Español"></button>
+                    <button data-lang="en"><img src="img/en.png" alt="English"></button>
+                </div>
+            </div>
         </nav>
-        <div class="hero">
-            <div class="hero-content">
-                <h1 class="lang-pt">Seja bem-vindo à New Worker Reformas e remodelações para transformar seu ambiente.</h1>
-                <h1 class="lang-en hidden">Welcome to New Worker Renovations and remodeling to transform your environment.</h1>
-                <h1 class="lang-es hidden">Bienvenido a New Worker Reformas y remodelaciones para transformar su ambiente.</h1>
-            </div>
-            <div class="hero-image">
-                <img src="imagem-pintor.jpg" alt="Pintor trabalhando em uma parede">
-            </div>
-        </div>
     </header>
 
-    <section id="sobre" class="about">
-        <div class="about-content">
-            <h2 class="lang-pt">Bem-vindo à New Worker Obras e Reformas</h2>
-            <h2 class="lang-en hidden">Welcome to New Worker Works and Reforms</h2>
-            <h2 class="lang-es hidden">Bienvenido a New Worker Obras y Reformas</h2>
-            <p class="lang-pt">Com uma vasta experiência no setor da construção civil, a New Worker se orgulha em ser sua parceira ideal para concretizar seus projetos de obras e reformas. Nossa equipe qualificada e comprometida oferece soluções completas e personalizadas, desde o planejamento até a execução, garantindo qualidade, eficiência e satisfação em cada detalhe.</p>
-            <p class="lang-en hidden">With extensive experience in the civil construction sector, New Worker is proud to be your ideal partner to realize your construction and renovation projects. Our qualified and committed team offers complete and personalized solutions, from planning to execution, ensuring quality, efficiency, and satisfaction in every detail.</p>
-            <p class="lang-es hidden">Con una vasta experiencia en el sector de la construcción civil, New Worker se enorgullece de ser su socio ideal para llevar a cabo sus proyectos de obras y reformas. Nuestro equipo cualificado y comprometido ofrece soluciones completas y personalizadas, desde la planificación hasta la ejecución, garantizando calidad, eficiencia y satisfacción en cada detalle.</p>
-            <a href="#" class="button lang-pt">Entre em contato</a><a href="#" class="button lang-en hidden">Contact us</a><a href="#" class="button lang-es hidden">Contáctenos</a>
+    <section id="hero" class="hero-mp">
+        <div class="hero-content-mp">
+            <h1 data-i18n="hero.title">Seja bem-vindo à<br>New Works!<br>Excelência em<br>obras e<br>remodelações para<br>transformar seu<br>ambiente.</h1>
         </div>
     </section>
 
-    <section id="servicos" class="services">
-        <h2 class="lang-pt">Nossos Serviços</h2>
-        <h2 class="lang-en hidden">Our Services</h2>
-        <h2 class="lang-es hidden">Nuestros Servicios</h2>
-        <div class="services-grid">
-            <div class="service-column">
-                <ul>
-                    <li><img src="check.png" alt=""><span class="lang-pt">Pintura Residencial e Comercial</span><span class="lang-en hidden">Residential and Commercial Painting</span><span class="lang-es hidden">Pintura Residencial y Comercial</span></li>
-                    <li><img src="check.png" alt=""><span class="lang-pt">Acabamentos (pisos, revestimentos)</span><span class="lang-en hidden">Finishes (floors, coverings)</span><span class="lang-es hidden">Acabados (pisos, revestimientos)</span></li>
-                    <li><img src="check.png" alt=""><span class="lang-pt">Instalações Elétricas e Hidráulicas</span><span class="lang-en hidden">Electrical and Plumbing Installations</span><span class="lang-es hidden">Instalaciones Eléctricas e Hidráulicas</span></li>
-                    <li><img src="check.png" alt=""><span class="lang-pt">Trabalhos em Drywall</span><span class="lang-en hidden">Drywall Work</span><span class="lang-es hidden">Trabajos en Drywall</span></li>
-                    <li><img src="check.png" alt=""><span class="lang-pt">Manutenção de Telhados e Forros</span><span class="lang-en hidden">Roof and Ceiling Maintenance</span><span class="lang-es hidden">Mantenimiento de Techos y Cielorrasos</span></li>
-                    <li><img src="check.png" alt=""><span class="lang-pt">Reformas em Geral (cozinhas, banheiros)</span><span class="lang-en hidden">General Renovations (kitchens, bathrooms)</span><span class="lang-es hidden">Reformas en General (cocinas, baños)</span></li>
-                    <li><img src="check.png" alt=""><span class="lang-pt">Soluções Personalizadas para Ambientes</span><span class="lang-en hidden">Customized Solutions for Environments</span><span class="lang-es hidden">Soluciones Personalizadas para Ambientes</span></li>
-                </ul>
-                <a href="#" class="button lang-pt">Saiba mais sobre nossos serviços</a><a href="#" class="button lang-en hidden">Learn more about our services</a><a href="#" class="button lang-es hidden">Saber más sobre nuestros servicios</a>
+    <section id="sobre" class="about-mp">
+        <div class="about-content-mp">
+            <div class="text-content">
+                <h2 data-i18n="about.title">Bem-vindo à New Works<br>Obras e Remodelações</h2>
+                <p data-i18n="about.description">Com 4 anos de experiência e credibilidade, a New Works se destaca no setor da construção civil e remodelação, oferecendo serviços de alta qualidade e soluções personalizadas para cada cliente. <br> <br>Nosso compromisso é transformar espaços com profissionalismo, eficiência e excelência.</p>
+                <a href="https://w.app/lfazof" class="button blue-button" data-i18n="button.especialista">Falar com um especialista</a>
             </div>
-            <div class="service-image">
-                <img src="imagem-servicos-1.jpg" alt="Exemplo de serviço">
-            </div>
-            <div class="service-column">
-                <ul>
-                    <li><img src="check.png" alt=""><span class="lang-pt">Planejamento, Coordenação e Execução</span><span class="lang-en hidden">Planning, Coordination and Execution</span><span class="lang-es hidden">Planificación, Coordinación y Ejecución</span></li>
-                    <li><img src="check.png" alt=""><span class="lang-pt">Instalação e Manutenção de Tubulações, Conexões e Acessórios</span><span class="lang-en hidden">Installation and Maintenance of Pipes, Connections and Accessories</span><span class="lang-es hidden">Instalación y Mantenimiento de Tuberías, Conexiones y Accesorios</span></li>
-                    <li><img src="check.png" alt=""><span class="lang-pt">Sistemas de Aquecimento de Água</span><span class="lang-en hidden">Water Heating Systems</span><span class="lang-es hidden">Sistemas de Calentamiento de Agua</span></li>
-                    <li><img src="check.png" alt=""><span class="lang-pt">Verificação & Manutenção Predial</span><span class="lang-en hidden">Building Verification & Maintenance</span><span class="lang-es hidden">Verificación y Mantenimiento Predial</span></li>
-                    <li><img src="check.png" alt=""><span class="lang-pt">Impermeabilização, Isolamento Acústico e Térmico</span><span class="lang-en hidden">Waterproofing, Acoustic and Thermal Insulation</span><span class="lang-es hidden">Impermeabilización, Aislamiento Acústico y Térmico</span></li>
-                    <li><img src="check.png" alt=""><span class="lang-pt">Manutenção e Recuperação de Fachadas</span><span class="lang-en hidden">Facade Maintenance and Recovery</span><span class="lang-es hidden">Mantenimiento y Recuperación de Fachadas</span></li>
-                    <li><img src="check.png" alt=""><span class="lang-pt">Construção, Reforma e Ampliação de Imóveis</span><span class="lang-en hidden">Construction, Renovation and Expansion of Properties</span><span class="lang-es hidden">Construcción, Reforma y Ampliación de Inmuebles</span></li>
-                </ul>
-            </div>
-            <div class="service-image">
-                <img src="imagem-servicos-2.jpg" alt="Exemplo de serviço">
+            <div class="image-content">
+                <img src="./img/quem-somos (1).png" alt="Pintor">
             </div>
         </div>
     </section>
 
-    <section id="vantagens" class="advantages">
-        <h2 class="lang-pt">Por que escolher a New Worker?</h2>
-        <h2 class="lang-en hidden">Why choose New Worker?</h2>
-        <h2 class="lang-es hidden">¿Por qué elegir New Worker?</h2>
-        <div class="advantages-grid">
-            <div class="advantage-column">
-                <ul>
-                    <li><img src="check-blue.png" alt=""><span class="lang-pt">Profissionais Qualificados e Experientes</span><span class="lang-en hidden">Qualified and Experienced Professionals</span><span class="lang-es hidden">Profesionales Calificados y Experimentados</span></li>
-                    <li><img src="check-blue.png" alt=""><span class="lang-pt">Compromisso com Prazos e Orçamentos</span><span class="lang-en hidden">Commitment to Deadlines and Budgets</span><span class="lang-es hidden">Compromiso con Plazos y Presupuestos</span></li>
-                    <li><img src="check-blue.png" alt=""><span class="lang-pt">Atendimento Personalizado</span><span class="lang-en hidden">Personalized Service</span><span class="lang-es hidden">Atención Personalizada</span></li>
-                    <li><img src="check-blue.png" alt=""><span class="lang-pt">Garantia de Qualidade nos Serviços</span><span class="lang-en hidden">Quality Guarantee in Services</span><span class="lang-es hidden">Garantía de Calidad en los Servicios</span></li>
-                    <li><img src="check-blue.png" alt=""><span class="lang-pt">Utilização de Materiais de Primeira Linha</span><span class="lang-en hidden">Use of First-Class Materials</span><span class="lang-es hidden">Utilización de Materiales de Primera Calidad</span></li>
-                    <li><img src="check-blue.png" alt=""><span class="lang-pt">Soluções Inovadoras e Sustentáveis</span><span class="lang-en hidden">Innovative and Sustainable Solutions</span><span class="lang-es hidden">Soluciones Innovadoras y Sostenibles</span></li>
-                </ul>
-                <a href="#" class="button blue-button lang-pt">Solicite um orçamento</a><a href="#" class="button blue-button lang-en hidden">Request a quote</a><a href="#" class="button blue-button lang-es hidden">Solicite un presupuesto</a>
+    <section id="servicos" class="services-mp">
+        <h2 data-i18n="services.title">Nossos Serviços</h2>
+        <div class="services-grid-mp custom-layout">
+            <div class="service-item">
+                <div class="text-content">
+                    <h3 data-i18n="services.pintura.title">🎨 Pintura Residencial e Comercial</h3>
+                    <ul>
+                        <li data-i18n="services.pintura.item1">✔ Pintura interna e externa</li>
+                        <li data-i18n="services.pintura.item2">✔ Acabamentos refinados e duradouros</li>
+                        <li data-i18n="services.pintura.item3">✔ Aplicação de tintas especiais e texturas</li>
+                    </ul>
+                    <ul>
+                        <h3 data-i18n="services.pladur.title">🏗️ Trabalhos em Pladur</h3>
+                        <li data-i18n="services.pladur.item1">✔ Montagem de divisórias e forros</li>
+                        <li data-i18n="services.pladur.item2">✔ Tetos falsos e paredes em gesso cartonado</li>
+                        <li data-i18n="services.pladur.item3">✔ Soluções personalizadas para ambientes modernos</li>
+                    </ul>
+                    <a href="https://w.app/lfazof" class="button blue-button" data-i18n="button.especialista">Falar com um especialista</a>
+                </div>
+                <div class="image-content right">
+                    <img src="./img/Pintura-Residencial-Comercial (1).png" alt="Pintura">
+                </div>
             </div>
-            <div class="advantage-image">
-                <img src="imagem-vantagens.jpg" alt="Equipe trabalhando">
+
+
+            <div class="service-item service-item-centered">
+                <div class="text-content">
+                    <ul>
+                        <h3 data-i18n="services.pichelaria.title">🚰 Pichelaria (Canalização e Hidráulica)</h3>
+                        <li data-i18n="services.pichelaria.item1">✔ Instalação e manutenção de tubulações</li>
+                        <li data-i18n="services.pichelaria.item2">✔ Reparação de vazamentos e entupimentos</li>
+                        <li data-i18n="services.pichelaria.item3">✔ Sistemas de aquecimento de água</li>
+                    </ul>
+                    <ul>
+                        <h3 data-i18n="services.verticais.title">🛠️ Verticais & Manutenção Predial</h3>
+                        <li data-i18n="services.verticais.item1">✔ Lavagem de fachadas, pastilhas e granitos</li>
+                        <li data-i18n="services.verticais.item2">✔ Manutenção e reparação de edifícios</li>
+                        <li data-i18n="services.verticais.item3">✔ Soluções para conservação e valorização do imóvel</li>
+                    </ul>
+                    <a href="https://w.app/lfazof" class="button blue-button" data-i18n="button.especialista">Falar com um especialista</a>
+                </div>
+                <div class="image-content right">
+                    <img src="./img/pixelaria (1).png" alt="Pichelaria">
+                </div>
             </div>
+
+            <div class="service-item">
+                <div class="text-content">
+                    <h3 data-i18n="services.verticais.title">🛠️ Verticais & Manutenção Predial</h3>
+                    <ul>
+                        <li data-i18n="services.verticais.item1">✔ Lavagem de fachadas, pastilhas e granitos</li>
+                        <li data-i18n="services.verticais.item2">✔ Manutenção e reparação de edifícios</li>
+                        <li data-i18n="services.verticais.item3">✔ Soluções para conservação e valorização do imóvel</li>
+                    </ul>
+                    <ul>
+                        <h3 data-i18n="services.impermeabilizacao.title">🛡️ Impermeabilização em Geral</h3>
+                        <li data-i18n="services.impermeabilizacao.item1">✔ Proteção contra infiltrações e umidade</li>
+                        <li data-i18n="services.impermeabilizacao.item2">✔ Tratamento de lajes, telhados e fachadas</li>
+                        <li data-i18n="services.impermeabilizacao.item3">✔ Aplicação de membranas impermeáveis</li>
+                    </ul>
+
+                    <a href="https://w.app/lfazof" class="button blue-button" data-i18n="button.especialista">Falar com um especialista</a>
+                </div>
+                <div class="image-content left">
+                    <img src="./img/serciços-gerais (1).png" alt="Verticais & Manutenção Predial">
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <footer id="contato">
-        <p class="lang-pt">&copy; 2023 New Worker Reformas. Todos os direitos reservados.</p>
-        <p class="lang-en hidden">&copy; 2023 New Worker Renovations. All rights reserved.</p>
-        <p class="lang-es hidden">&copy; 2023 New Worker Reformas. Todos los derechos reservados.</p>
-    </footer>
+    <section id="vantagens" class="advantages-mp">
+        <div class="advantages-container">
+           <div class="advantages-transparent-box">
+            <div class="advantages-text-wrapper">
+               <h2 data-i18n="advantages.title">Por que escolher a New Works?</h2>
+               <ul class="advantages-list-mp">
+                <li>✅Experiência e Credibilidade - 4 anos de atuação com excelência</span></li>
+                <li>✅Equipe Qualificada - Profissionais especializados para cada serviço</span></li>
+                <li>✅Compromisso e Qualidade - Materiais de alto padrão  técnicas inovadoras</span></li>
+                <li>✅Atendimento Personalizado - Soluções sob medida para cada cliente</span></li>
+               </ul>
+               <a href="https://w.app/lfazof" class="button white-button" data-i18n="button.especialista">Falar com um especialista</a>
+            </div>
+           </div>
+        </div>
+        </section>
 
+        <section id="contato" class="contact-mp">
+         <div class="contact-container">
+          <h2 data-i18n="contact.title">Entre em Contato</h2>
+          <div class="contact-info">
+           <p><i class="fas fa-phone"></i> <span data-i18n="contact.phone">Telefone: (351) 934-106-582</span></p>
+           <p><i class="fas fa-envelope"></i> <span data-i18n="contact.email">Email: newworks.obras@gmail.com</span></p>
+           <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact.address">Endereço: Rua Padre Porfiri Alves,148r/c, 4480- Vila do Conde</span></p>
+          </div>
+          <a href="https://w.app/lfazof" class="button blue-button" data-i18n="contact.button">Enviar Mensagem</a>
+         </div>
+        </section>
+
+        <footer class="footer-mp">
+         <div class="footer-container">
+          <div class="footer-logo">
+           <img src="./img/WhatsApp Image 2025-03-02 at 10.47.00 1 (1).png" alt="Logo New Works"> </div>
+          <p class="copyright"><a href="https://bit.ly/3XgAgUi" target="_blank">@Criado por Danilo Farias</a></p>
+         </div>
+        </footer>
+    <script>
+        const toggleButton = document.querySelector('.toggle-button');
+        const navLinks = document.querySelector('.nav-links');
+
+        toggleButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            toggleButton.classList.toggle('active');
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
