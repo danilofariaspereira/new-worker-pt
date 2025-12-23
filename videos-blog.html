@@ -179,6 +179,14 @@
             max-width: calc(33.333% - 14px);
         }
 
+        @media (max-width: 768px) {
+            .video-card {
+                flex: 0 0 100%;
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+
 
         .videos-nav-arrow {
             position: absolute;
@@ -225,6 +233,70 @@
             margin-left: auto;
             margin-right: auto;
             padding: 0 20px;
+        }
+
+        /* Blog Slider para Mobile */
+        .blog-slider-container {
+            display: none;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 50px;
+            position: relative;
+        }
+
+        .blog-slider-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-grid-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 20px;
+            will-change: transform;
+        }
+
+        .blog-card-slider {
+            flex: 0 0 calc(33.333% - 14px);
+            min-width: 0;
+            max-width: calc(33.333% - 14px);
+        }
+
+        .blog-nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(102, 126, 234, 0.9);
+            color: #fff;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .blog-nav-arrow:hover:not(:disabled) {
+            background: rgba(102, 126, 234, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .blog-nav-arrow:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .blog-nav-prev {
+            left: 0;
+        }
+
+        .blog-nav-next {
+            right: 0;
         }
 
         /* Blog Modal */
@@ -676,7 +748,34 @@
             }
 
             .blog-grid {
-                grid-template-columns: 1fr;
+                display: none;
+            }
+
+            .blog-slider-container {
+                display: block;
+                padding: 0 50px;
+            }
+
+            .blog-grid-slider {
+                display: flex;
+            }
+
+            .blog-card-slider {
+                flex: 0 0 100%;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .blog-nav-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .blog-slider-container {
+                display: none;
             }
 
             .blog-modal-content {
@@ -951,6 +1050,7 @@
         <!-- Seção de Blog -->
         <div class="blog-section">
             <h2 class="section-title" data-i18n="videosBlog.blog">Artigos do Blog</h2>
+            <!-- Desktop Grid -->
             <div class="blog-grid">
                 <div class="blog-card" data-blog-index="0">
                     <img src="./img/abra-015.jpeg" alt="Dia-a-dia New Works - Pintura Residencial" class="blog-image">
@@ -984,6 +1084,52 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Mobile Slider -->
+            <div class="blog-slider-container">
+                <button class="blog-nav-arrow blog-nav-prev" id="blogPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="blog-slider-wrapper">
+                    <div class="blog-grid-slider" id="blogGridSlider">
+                        <div class="blog-card-slider blog-card" data-blog-index="0">
+                            <img src="./img/abra-015.jpeg" alt="Dia-a-dia New Works - Pintura Residencial" class="blog-image">
+                            <div class="blog-info">
+                                <h3 data-i18n="blog.post1.title">Dia-a-dia New Works: Transformando Ambientes com Pintura de Qualidade</h3>
+                                <p data-i18n="blog.post1.desc">No dia-a-dia da New Works, cada projeto de pintura é tratado com atenção especial. Nossa equipe trabalha com materiais de alta qualidade e técnicas modernas para garantir acabamentos perfeitos e duradouros. Veja como transformamos espaços residenciais e comerciais em Vila do Conde e região.</p>
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar"></i> <span data-i18n="blog.recent">Recente</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="blog-card-slider blog-card" data-blog-index="1">
+                            <img src="./img/abra-020.jpeg" alt="Obras em Pladur - New Works" class="blog-image">
+                            <div class="blog-info">
+                                <h3 data-i18n="blog.post2.title">Obras em Pladur: Modernidade e Funcionalidade em Cada Projeto</h3>
+                                <p data-i18n="blog.post2.desc">A New Works especializa-se em trabalhos com pladur, criando divisórias, forros e soluções personalizadas que combinam estética moderna com funcionalidade. Nossos profissionais trabalham com precisão para entregar resultados que superam expectativas, sempre respeitando prazos e orçamentos.</p>
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar"></i> <span data-i18n="blog.recent">Recente</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="blog-card-slider blog-card" data-blog-index="2">
+                            <img src="./img/abra-025.jpeg" alt="Manutenção Predial - New Works" class="blog-image">
+                            <div class="blog-info">
+                                <h3 data-i18n="blog.post3.title">Manutenção Predial: Cuidado Contínuo para Valorização do Imóvel</h3>
+                                <p data-i18n="blog.post3.desc">A manutenção predial é essencial para preservar e valorizar seu imóvel. Na New Works, oferecemos serviços completos de manutenção, incluindo lavagem de fachadas, reparos e impermeabilização. Nossa experiência de 4 anos garante soluções eficientes e duradouras para edifícios em toda a região do Porto.</p>
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar"></i> <span data-i18n="blog.recent">Recente</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="blog-nav-arrow blog-nav-next" id="blogNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -1183,6 +1329,60 @@
             maxIndex = totalVideos - visibleVideos;
             if (currentIndex > maxIndex) currentIndex = maxIndex;
             updateVideosSliderPosition();
+        });
+
+        // Blog Slider Navigation - Mobile apenas
+        const blogGridSlider = document.getElementById('blogGridSlider');
+        const blogPrev = document.getElementById('blogPrev');
+        const blogNext = document.getElementById('blogNext');
+        const allBlogCards = document.querySelectorAll('.blog-card-slider');
+        let currentBlogIndex = 0;
+        const totalBlogPosts = 3;
+
+        function updateBlogSliderPosition() {
+            if (blogGridSlider && allBlogCards.length > 0 && window.innerWidth <= 768) {
+                const cardWidth = allBlogCards[0].offsetWidth;
+                const gap = 20;
+                const cardWidthWithGap = cardWidth + gap;
+                
+                const translateX = -(currentBlogIndex * cardWidthWithGap);
+                blogGridSlider.style.transform = `translateX(${translateX}px)`;
+                
+                if (blogPrev) {
+                    blogPrev.style.opacity = currentBlogIndex === 0 ? '0.5' : '1';
+                    blogPrev.style.pointerEvents = currentBlogIndex === 0 ? 'none' : 'auto';
+                }
+                if (blogNext) {
+                    blogNext.style.opacity = currentBlogIndex >= totalBlogPosts - 1 ? '0.5' : '1';
+                    blogNext.style.pointerEvents = currentBlogIndex >= totalBlogPosts - 1 ? 'none' : 'auto';
+                }
+            }
+        }
+
+        if (blogNext) {
+            blogNext.addEventListener('click', () => {
+                if (window.innerWidth <= 768 && currentBlogIndex < totalBlogPosts - 1) {
+                    currentBlogIndex++;
+                    updateBlogSliderPosition();
+                }
+            });
+        }
+
+        if (blogPrev) {
+            blogPrev.addEventListener('click', () => {
+                if (window.innerWidth <= 768 && currentBlogIndex > 0) {
+                    currentBlogIndex--;
+                    updateBlogSliderPosition();
+                }
+            });
+        }
+
+        // Inicializar posição do blog slider
+        updateBlogSliderPosition();
+        
+        // Atualizar ao redimensionar
+        window.addEventListener('resize', () => {
+            updateBlogSliderPosition();
         });
 
         // Blog Modal
