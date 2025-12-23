@@ -913,12 +913,12 @@
                 </button>
                 <div class="videos-slider-wrapper">
                     <div class="videos-grid" id="videosGrid">
-                        <div class="video-card" data-video-id="LF5gNEP5iw0" data-video-index="0">
+                        <div class="video-card" data-video-id="8iKencjs960" data-video-index="0">
                             <div class="video-thumbnail">
                                 <div class="video-logo-overlay">
                                     <img src="./img/logo-nav.png" alt="New Works">
                                 </div>
-                                <img src="https://img.youtube.com/vi/LF5gNEP5iw0/maxresdefault.jpg" alt="Dia-a-dia New Works">
+                                <img src="https://img.youtube.com/vi/8iKencjs960/maxresdefault.jpg" alt="Serviços Especializados - New Works">
                                 <div class="video-play-overlay">
                                     <div class="play-button-large">
                                         <i class="fas fa-play"></i>
@@ -926,20 +926,20 @@
                                 </div>
                             </div>
                             <div class="video-info">
-                                <h3 data-i18n="videosBlog.video1.title">Dia-a-dia New Works - Obras em Andamento</h3>
-                                <p data-i18n="videosBlog.video1.desc">Conheça um pouco do nosso trabalho diário e veja como transformamos espaços com qualidade e profissionalismo.</p>
+                                <h3 data-i18n="videosBlog.video1.title">Serviços Especializados - New Works</h3>
+                                <p data-i18n="videosBlog.video1.desc">Conheça nossos serviços especializados em pintura, pladur, pichelaria e muito mais em Vila do Conde e região.</p>
                                 <div class="video-meta">
                                     <span><i class="far fa-calendar"></i> <span data-i18n="videosBlog.recent">Recente</span></span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="video-card" data-video-id="87sI_h-dYqs" data-video-index="1">
+                        <div class="video-card" data-video-id="KSGwaBTecXE" data-video-index="1">
                             <div class="video-thumbnail">
                                 <div class="video-logo-overlay">
                                     <img src="./img/logo-nav.png" alt="New Works">
                                 </div>
-                                <img src="https://img.youtube.com/vi/87sI_h-dYqs/maxresdefault.jpg" alt="Projetos de Remodelação">
+                                <img src="https://img.youtube.com/vi/KSGwaBTecXE/maxresdefault.jpg" alt="Qualidade e Profissionalismo - New Works">
                                 <div class="video-play-overlay">
                                     <div class="play-button-large">
                                         <i class="fas fa-play"></i>
@@ -947,20 +947,20 @@
                                 </div>
                             </div>
                             <div class="video-info">
-                                <h3 data-i18n="videosBlog.video2.title">Projetos de Remodelação - Antes e Depois</h3>
-                                <p data-i18n="videosBlog.video2.desc">Veja a transformação completa de espaços através dos nossos projetos de remodelação em Vila do Conde e região.</p>
+                                <h3 data-i18n="videosBlog.video2.title">Qualidade e Profissionalismo - New Works</h3>
+                                <p data-i18n="videosBlog.video2.desc">Veja como a New Works trabalha com qualidade, profissionalismo e compromisso em cada projeto de obras e remodelações.</p>
                                 <div class="video-meta">
                                     <span><i class="far fa-calendar"></i> <span data-i18n="videosBlog.recent">Recente</span></span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="video-card" data-video-id="518id10ONVs" data-video-index="2">
+                        <div class="video-card" data-video-id="d3lg1zDNM9k" data-video-index="2">
                             <div class="video-thumbnail">
                                 <div class="video-logo-overlay">
                                     <img src="./img/logo-nav.png" alt="New Works">
                                 </div>
-                                <img src="https://img.youtube.com/vi/518id10ONVs/maxresdefault.jpg" alt="Técnicas e Processos">
+                                <img src="https://img.youtube.com/vi/d3lg1zDNM9k/maxresdefault.jpg" alt="Transformação de Espaços - New Works">
                                 <div class="video-play-overlay">
                                     <div class="play-button-large">
                                         <i class="fas fa-play"></i>
@@ -968,8 +968,8 @@
                                 </div>
                             </div>
                             <div class="video-info">
-                                <h3 data-i18n="videosBlog.video3.title">Técnicas e Processos - New Works em Ação</h3>
-                                <p data-i18n="videosBlog.video3.desc">Conheça as técnicas e processos que utilizamos para garantir excelência em cada projeto de obras e remodelações.</p>
+                                <h3 data-i18n="videosBlog.video3.title">Transformação de Espaços - New Works</h3>
+                                <p data-i18n="videosBlog.video3.desc">Descubra como transformamos espaços com excelência, utilizando materiais de alta qualidade e técnicas inovadoras.</p>
                                 <div class="video-meta">
                                     <span><i class="far fa-calendar"></i> <span data-i18n="videosBlog.recent">Recente</span></span>
                                 </div>
@@ -1466,31 +1466,50 @@
         // Video Modal
         const videoModal = document.getElementById('videoModal');
         const videoModalClose = document.getElementById('videoModalClose');
-        const videoModalIframe = document.getElementById('videoModalIframe');
         const videoCards = document.querySelectorAll('.video-card[data-video-id]');
         let currentVideoIndex = 0;
         let videoPlayer = null;
 
-        const videoIds = ['LF5gNEP5iw0', '87sI_h-dYqs', '518id10ONVs', '8iKencjs960', 'KSGwaBTecXE', 'd3lg1zDNM9k'];
+        const videoIds = ['8iKencjs960', 'KSGwaBTecXE', 'd3lg1zDNM9k', 'LF5gNEP5iw0', '87sI_h-dYqs', '518id10ONVs'];
 
         function openVideoModal(videoId, index) {
+            // Limpar qualquer player existente antes de abrir um novo vídeo
+            if (videoPlayer) {
+                try {
+                    videoPlayer.stopVideo();
+                    videoPlayer.destroy();
+                } catch(e) {}
+                videoPlayer = null;
+            }
+            
             currentVideoIndex = index;
+            
+            // Encontrar o container do modal
+            const videoModalContent = document.querySelector('.video-modal-content');
+            if (!videoModalContent) return;
+            
+            // Remover iframe existente completamente
+            const existingIframe = document.getElementById('videoModalIframe');
+            if (existingIframe) {
+                existingIframe.src = '';
+                existingIframe.remove();
+            }
+            
+            // Criar novo iframe do zero
+            const newIframe = document.createElement('iframe');
+            newIframe.id = 'videoModalIframe';
+            newIframe.frameBorder = '0';
+            newIframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            newIframe.allowFullscreen = true;
+            
             // Parâmetros para minimizar informações do YouTube
-            // autoplay=1: inicia automaticamente
-            // mute=0: com som
-            // modestbranding=1: remove logo do YouTube
-            // rel=0: não mostra vídeos relacionados
-            // showinfo=0: não mostra informações (deprecated)
-            // controls=1: mostra controles
-            // fs=1: permite fullscreen
-            // iv_load_policy=3: desativa anotações
-            // cc_load_policy=0: desativa legendas
-            // disablekb=0: permite teclado
-            // playsinline=1: reproduz inline
-            // enablejsapi=1: habilita API JavaScript
-            // origin: necessário para segurança
-            const videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&modestbranding=1&rel=0&showinfo=0&controls=1&fs=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&playsinline=1&enablejsapi=1&origin=${window.location.origin}`;
-            videoModalIframe.src = videoUrl;
+            const videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&modestbranding=1&rel=0&controls=1&fs=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&playsinline=1&enablejsapi=1&origin=${window.location.origin}`;
+            newIframe.src = videoUrl;
+            
+            // Adicionar iframe ao container
+            videoModalContent.appendChild(newIframe);
+            
+            // Abrir modal
             videoModal.classList.add('active');
             document.body.classList.add('video-modal-open');
             document.body.style.overflow = 'hidden';
@@ -1502,16 +1521,26 @@
         }
 
         function closeVideoModal() {
-            videoModal.classList.remove('active');
-            videoModalIframe.src = '';
-            document.body.classList.remove('video-modal-open');
-            document.body.style.overflow = '';
+            // Parar e destruir o player antes de fechar
             if (videoPlayer) {
                 try {
+                    videoPlayer.stopVideo();
                     videoPlayer.destroy();
                 } catch(e) {}
                 videoPlayer = null;
             }
+            
+            // Encontrar e remover iframe completamente
+            const iframe = document.getElementById('videoModalIframe');
+            if (iframe) {
+                iframe.src = '';
+                iframe.remove();
+            }
+            
+            // Fechar modal
+            videoModal.classList.remove('active');
+            document.body.classList.remove('video-modal-open');
+            document.body.style.overflow = '';
         }
 
         // Abrir modal ao clicar no vídeo
@@ -1540,9 +1569,14 @@
 
         // Autoplay sequencial quando vídeo terminar
         function setupVideoAutoplay() {
+            // Verificar se o modal ainda está aberto
+            if (!videoModal || !videoModal.classList.contains('active')) {
+                return;
+            }
+            
             if (!window.YT || !window.YT.Player) {
                 setTimeout(() => {
-                    if (window.YT && window.YT.Player) {
+                    if (window.YT && window.YT.Player && videoModal && videoModal.classList.contains('active')) {
                         setupVideoAutoplay();
                     }
                 }, 500);
@@ -1550,6 +1584,7 @@
             }
 
             try {
+                // Limpar player existente antes de criar um novo
                 if (videoPlayer) {
                     try {
                         videoPlayer.destroy();
@@ -1558,12 +1593,21 @@
                 }
                 
                 const iframe = document.getElementById('videoModalIframe');
-                if (!iframe) {
-                    setTimeout(() => setupVideoAutoplay(), 500);
+                if (!iframe || !iframe.src || !iframe.parentElement) {
+                    return;
+                }
+                
+                // Verificar se o iframe ainda está no DOM
+                if (!document.body.contains(iframe)) {
                     return;
                 }
 
                 setTimeout(() => {
+                    // Verificar novamente se o modal ainda está aberto
+                    if (!videoModal || !videoModal.classList.contains('active')) {
+                        return;
+                    }
+                    
                     try {
                         videoPlayer = new YT.Player(iframe, {
                             events: {
@@ -1586,12 +1630,11 @@
                         });
                     } catch(e) {
                         console.log('Erro ao criar player:', e);
-                        setTimeout(() => setupVideoAutoplay(), 1000);
+                        // Não tentar novamente se houve erro
                     }
                 }, 800);
             } catch(e) {
                 console.log('Erro ao configurar player:', e);
-                setTimeout(() => setupVideoAutoplay(), 1000);
             }
         }
 
