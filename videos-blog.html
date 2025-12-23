@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeos & Blog - New Works</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./img/logo-nav.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Banner Section */
+        .videos-blog-banner {
+            position: relative;
+            width: 100%;
+            margin-top: 0;
+            padding-top: 0;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .videos-blog-banner-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 500px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 100px 0 0 0;
+        }
+
+        .videos-blog-banner-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: block;
+        }
+
+        .videos-blog-banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 2;
+        }
+
+        .videos-blog-banner-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: #fff;
+            padding: 40px 20px;
+            max-width: 900px;
+        }
+
+        .videos-blog-banner-content h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+
+        .videos-blog-banner-content p {
+            font-size: 1.4em;
+            line-height: 1.6;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            margin: 0;
+        }
+
+        .videos-blog-page {
+            padding: 80px 20px 100px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .videos-blog-page > * {
+            max-width: 1300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-header {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+        }
+
+        .page-header h1 {
+            font-size: 3.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            font-size: 1.3em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+
+        .videos-section {
+            margin-bottom: 80px;
+            position: relative;
+            background: transparent;
+        }
+
+        .videos-blog-page {
+            background: #fff;
+        }
+
+        .blog-section {
+            margin-top: 80px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        /* Videos Slider */
+        .videos-grid-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 50px;
+            position: relative;
+        }
+
+        .videos-slider-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .videos-grid {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 20px;
+            will-change: transform;
+        }
+
+        .video-card {
+            flex: 0 0 calc(33.333% - 14px);
+            min-width: 0;
+            max-width: calc(33.333% - 14px);
+        }
+
+
+        .videos-nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(102, 126, 234, 0.9);
+            color: #fff;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .videos-nav-arrow:hover:not(:disabled) {
+            background: rgba(102, 126, 234, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .videos-nav-arrow:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .videos-nav-prev {
+            left: 0;
+        }
+
+        .videos-nav-next {
+            right: 0;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1300px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+
+        /* Blog Modal */
+        .blog-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .blog-modal.active {
+            display: flex;
+        }
+
+        body.blog-modal-open {
+            overflow: hidden;
+        }
+
+        body.blog-modal-open header {
+            display: none !important;
+        }
+
+        .blog-modal-content {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            max-width: 90vw;
+            max-height: 90vh;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .blog-modal-image {
+            width: 50%;
+            height: 100%;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .blog-modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-modal-text {
+            width: 50%;
+            height: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        .blog-modal-text h3 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .blog-modal-text p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .blog-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: #fff;
+            font-size: 2.5em;
+            cursor: pointer;
+            z-index: 10001;
+            background: rgba(0, 0, 0, 0.7);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: none;
+            line-height: 1;
+            padding: 0;
+        }
+
+        .blog-modal-close:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: rotate(90deg);
+        }
+
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .video-modal.active {
+            display: flex;
+        }
+
+        body.video-modal-open {
+            overflow: hidden;
+        }
+
+        body.video-modal-open header {
+            display: none !important;
+        }
+
+        .video-modal-content {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            max-width: 90vw;
+            max-height: 90vh;
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: #fff;
+            font-size: 2.5em;
+            cursor: pointer;
+            z-index: 10001;
+            background: rgba(0, 0, 0, 0.7);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: none;
+            line-height: 1;
+            padding: 0;
+        }
+
+        .video-modal-close:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: rotate(90deg);
+        }
+
+        .video-modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .video-card,
+        .blog-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .video-card:hover,
+        .blog-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .blog-card {
+            cursor: pointer;
+        }
+
+        .video-card {
+            cursor: pointer;
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+            border-radius: 15px 15px 0 0;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .video-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .video-thumbnail:hover .video-play-overlay {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .play-button-large {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .play-button-large:hover {
+            transform: scale(1.1);
+            background: #fff;
+        }
+
+        .play-button-large i {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-left: 3px;
+        }
+
+        .video-logo-overlay {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-logo-overlay img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+
+        .video-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .play-button:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: #fff;
+        }
+
+        .play-button i {
+            font-size: 2em;
+            color: #667eea;
+            margin-left: 5px;
+        }
+
+        .video-info,
+        .blog-info {
+            padding: 12px 15px;
+        }
+
+        .video-info h3,
+        .blog-info h3 {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 6px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .video-info p,
+        .blog-info p {
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            font-size: 0.85em;
+        }
+
+        .video-meta,
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .blog-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card img {
+            flex-shrink: 0;
+        }
+
+        .blog-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-info h3 {
+            flex-shrink: 0;
+        }
+
+        .blog-info p {
+            flex: 1;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .empty-state i {
+            font-size: 5em;
+            color: #667eea;
+            margin-bottom: 30px;
+        }
+
+        .empty-state h3 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .empty-state p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .videos-blog-page {
+                padding: 120px 20px 80px;
+            }
+
+            .page-header h1 {
+                font-size: 2.5em;
+            }
+
+            .videos-blog-banner-wrapper {
+                min-height: 400px;
+            }
+
+            .videos-blog-banner-content h1 {
+                font-size: 2em;
+            }
+
+            .videos-blog-banner-content p {
+                font-size: 1.1em;
+            }
+
+            .videos-grid-container {
+                padding: 0 50px;
+            }
+
+            .videos-slide {
+                grid-template-columns: 1fr;
+            }
+
+            .videos-nav-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-modal-content {
+                flex-direction: column;
+                height: auto;
+                max-height: 90vh;
+            }
+
+            .blog-modal-image {
+                width: 100%;
+                height: 300px;
+            }
+
+            .blog-modal-text {
+                width: 100%;
+                padding: 30px 20px;
+            }
+
+            .blog-modal-text h3 {
+                font-size: 1.4em;
+            }
+
+            .video-modal-content {
+                width: 95vw;
+                height: 53.4375vw;
+                max-height: 90vh;
+            }
+
+            .video-modal-close {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 2em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar floating-nav">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./img/logo-nav.png" alt="logo nav">
+                    </a>
+                </div>
+
+                <div class="nav-container">
+                    <ul class="nav-links desktop-nav-links">
+                        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                        <li><a href="servicos.html" data-i18n="nav.servicos">Serviços</a></li>
+                        <li><a href="videos-blog.html" data-i18n="nav.videos">Vídeos & Blog</a></li>
+                        <li><a href="index.html#contato" data-i18n="nav.contato">Contato</a></li>
+                    </ul>
+                    <div class="desktop-language-switcher">
+                        <button class="lang-toggle" id="langToggle">
+                            <img src="./img/pt.png" alt="Idioma" id="currentLangFlag">
+                        </button>
+                        <div class="lang-dropdown" id="langDropdown">
+                            <button data-lang="es" class="lang-option">
+                                <img src="./img/es.png" alt="Español">
+                            </button>
+                            <button data-lang="en" class="lang-option">
+                                <img src="./img/en.png" alt="English">
+                            </button>
+                        </div>
+                    </div>
+                    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+                    <div class="mobile-menu" id="mobileMenu">
+                        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Fechar menu">×</button>
+                        <ul class="nav-links mobile-nav-links" id="navLinks">
+                            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                            <li><a href="servicos.html" data-i18n="nav.servicos">Serviços</a></li>
+                            <li><a href="videos-blog.html" data-i18n="nav.videos">Vídeos & Blog</a></li>
+                            <li><a href="index.html#contato" data-i18n="nav.contato">Contato</a></li>
+                        </ul>
+                        <div class="mobile-language-switcher">
+                            <div class="lang-label" data-i18n="nav.language">Linguagem</div>
+                            <div class="mobile-lang-options">
+                                <button data-lang="pt" class="mobile-lang-option active">
+                                    <img src="./img/pt.png" alt="Português">
+                                    <span data-i18n="lang.pt">Português</span>
+                                </button>
+                                <button data-lang="es" class="mobile-lang-option">
+                                    <img src="./img/es.png" alt="Español">
+                                    <span data-i18n="lang.es">Español</span>
+                                </button>
+                                <button data-lang="en" class="mobile-lang-option">
+                                    <img src="./img/en.png" alt="English">
+                                    <span data-i18n="lang.en">English</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner Section -->
+    <section class="videos-blog-banner">
+        <div class="videos-blog-banner-wrapper">
+            <img src="./img/banner-blog-videos.png" alt="Vídeos e Blog - New Works" class="videos-blog-banner-image">
+            <div class="videos-blog-banner-overlay"></div>
+            <div class="videos-blog-banner-content">
+                <h1>Vídeos e Blog</h1>
+                <p>Conheça nosso trabalho através de vídeos e artigos sobre obras, remodelações e o dia-a-dia da New Works em Vila do Conde, Porto e região.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="videos-blog-page">
+        <!-- Seção de Vídeos -->
+        <div class="videos-section">
+            <h2 class="section-title">Nossos Vídeos</h2>
+            <div class="videos-grid-container">
+                <button class="videos-nav-arrow videos-nav-prev" id="videosPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="videos-slider-wrapper">
+                    <div class="videos-grid" id="videosGrid">
+                        <div class="video-card" data-video-id="LF5gNEP5iw0" data-video-index="0">
+                            <div class="video-thumbnail">
+                                <div class="video-logo-overlay">
+                                    <img src="./img/logo-nav.png" alt="New Works">
+                                </div>
+                                <img src="https://img.youtube.com/vi/LF5gNEP5iw0/maxresdefault.jpg" alt="Dia-a-dia New Works">
+                                <div class="video-play-overlay">
+                                    <div class="play-button-large">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Dia-a-dia New Works - Obras em Andamento</h3>
+                                <p>Conheça um pouco do nosso trabalho diário e veja como transformamos espaços com qualidade e profissionalismo.</p>
+                                <div class="video-meta">
+                                    <span><i class="far fa-calendar"></i> Recente</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video-id="87sI_h-dYqs" data-video-index="1">
+                            <div class="video-thumbnail">
+                                <div class="video-logo-overlay">
+                                    <img src="./img/logo-nav.png" alt="New Works">
+                                </div>
+                                <img src="https://img.youtube.com/vi/87sI_h-dYqs/maxresdefault.jpg" alt="Projetos de Remodelação">
+                                <div class="video-play-overlay">
+                                    <div class="play-button-large">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Projetos de Remodelação - Antes e Depois</h3>
+                                <p>Veja a transformação completa de espaços através dos nossos projetos de remodelação em Vila do Conde e região.</p>
+                                <div class="video-meta">
+                                    <span><i class="far fa-calendar"></i> Recente</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video-id="518id10ONVs" data-video-index="2">
+                            <div class="video-thumbnail">
+                                <div class="video-logo-overlay">
+                                    <img src="./img/logo-nav.png" alt="New Works">
+                                </div>
+                                <img src="https://img.youtube.com/vi/518id10ONVs/maxresdefault.jpg" alt="Técnicas e Processos">
+                                <div class="video-play-overlay">
+                                    <div class="play-button-large">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Técnicas e Processos - New Works em Ação</h3>
+                                <p>Conheça as técnicas e processos que utilizamos para garantir excelência em cada projeto de obras e remodelações.</p>
+                                <div class="video-meta">
+                                    <span><i class="far fa-calendar"></i> Recente</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video-id="8iKencjs960" data-video-index="3">
+                            <div class="video-thumbnail">
+                                <div class="video-logo-overlay">
+                                    <img src="./img/logo-nav.png" alt="New Works">
+                                </div>
+                                <img src="https://img.youtube.com/vi/8iKencjs960/maxresdefault.jpg" alt="Serviços Especializados">
+                                <div class="video-play-overlay">
+                                    <div class="play-button-large">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Serviços Especializados - New Works</h3>
+                                <p>Conheça nossos serviços especializados em pintura, pladur, pichelaria e muito mais em Vila do Conde e região.</p>
+                                <div class="video-meta">
+                                    <span><i class="far fa-calendar"></i> Recente</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video-id="KSGwaBTecXE" data-video-index="4">
+                            <div class="video-thumbnail">
+                                <div class="video-logo-overlay">
+                                    <img src="./img/logo-nav.png" alt="New Works">
+                                </div>
+                                <img src="https://img.youtube.com/vi/KSGwaBTecXE/maxresdefault.jpg" alt="Qualidade e Profissionalismo">
+                                <div class="video-play-overlay">
+                                    <div class="play-button-large">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Qualidade e Profissionalismo - New Works</h3>
+                                <p>Veja como a New Works trabalha com qualidade, profissionalismo e compromisso em cada projeto de obras e remodelações.</p>
+                                <div class="video-meta">
+                                    <span><i class="far fa-calendar"></i> Recente</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video-id="d3lg1zDNM9k" data-video-index="5">
+                            <div class="video-thumbnail">
+                                <div class="video-logo-overlay">
+                                    <img src="./img/logo-nav.png" alt="New Works">
+                                </div>
+                                <img src="https://img.youtube.com/vi/d3lg1zDNM9k/maxresdefault.jpg" alt="Transformação de Espaços">
+                                <div class="video-play-overlay">
+                                    <div class="play-button-large">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Transformação de Espaços - New Works</h3>
+                                <p>Descubra como transformamos espaços com excelência, utilizando materiais de alta qualidade e técnicas inovadoras.</p>
+                                <div class="video-meta">
+                                    <span><i class="far fa-calendar"></i> Recente</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="videos-nav-arrow videos-nav-next" id="videosNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Seção de Blog -->
+        <div class="blog-section">
+            <h2 class="section-title">Artigos do Blog</h2>
+            <div class="blog-grid">
+                <div class="blog-card" data-blog-index="0">
+                    <img src="./img/abra-015.jpeg" alt="Dia-a-dia New Works - Pintura Residencial" class="blog-image">
+                    <div class="blog-info">
+                        <h3>Dia-a-dia New Works: Transformando Ambientes com Pintura de Qualidade</h3>
+                        <p>No dia-a-dia da New Works, cada projeto de pintura é tratado com atenção especial. Nossa equipe trabalha com materiais de alta qualidade e técnicas modernas para garantir acabamentos perfeitos e duradouros. Veja como transformamos espaços residenciais e comerciais em Vila do Conde e região.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Janeiro 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-card" data-blog-index="1">
+                    <img src="./img/abra-020.jpeg" alt="Obras em Pladur - New Works" class="blog-image">
+                    <div class="blog-info">
+                        <h3>Obras em Pladur: Modernidade e Funcionalidade em Cada Projeto</h3>
+                        <p>A New Works especializa-se em trabalhos com pladur, criando divisórias, forros e soluções personalizadas que combinam estética moderna com funcionalidade. Nossos profissionais trabalham com precisão para entregar resultados que superam expectativas, sempre respeitando prazos e orçamentos.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Julho 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-card" data-blog-index="2">
+                    <img src="./img/abra-025.jpeg" alt="Manutenção Predial - New Works" class="blog-image">
+                    <div class="blog-info">
+                        <h3>Manutenção Predial: Cuidado Contínuo para Valorização do Imóvel</h3>
+                        <p>A manutenção predial é essencial para preservar e valorizar seu imóvel. Na New Works, oferecemos serviços completos de manutenção, incluindo lavagem de fachadas, reparos e impermeabilização. Nossa experiência de 4 anos garante soluções eficientes e duradouras para edifícios em toda a região do Porto.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Dezembro 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Modal -->
+    <div class="blog-modal" id="blogModal">
+        <button class="blog-modal-close" id="blogModalClose">&times;</button>
+        <div class="blog-modal-content">
+            <div class="blog-modal-image">
+                <img id="blogModalImage" src="" alt="">
+            </div>
+            <div class="blog-modal-text">
+                <h3 id="blogModalTitle"></h3>
+                <p id="blogModalText"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <button class="video-modal-close" id="videoModalClose">&times;</button>
+        <div class="video-modal-content">
+            <iframe id="videoModalIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <footer class="footer-mp" id="contato">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-logo-section">
+                    <img src="./img/WhatsApp Image 2025-03-02 at 10.47.00 1 (1).png" alt="Logo New Works">
+                </div>
+                <div class="footer-contact">
+                    <h3 data-i18n="contact.title">Entre em Contato</h3>
+                    <div class="contact-info">
+                        <p>
+                            <i class="fas fa-phone"></i> 
+                            <a href="https://wa.me/351934106582?text=Olá%20Fernando%2C%20vim%20através%20do%20site%20da%20New%20Works%2C%20gostaria%20de%20saber%20mais%20informações%20sobre%20o%20seu%20serviço." target="_blank" style="color: #fff; text-decoration: none;">
+                                <span data-i18n="contact.phone">(351) 934-106-582</span>
+                            </a>
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i> 
+                            <a href="mailto:newworks.obras@gmail.com" style="color: #fff; text-decoration: none;">
+                                <span data-i18n="contact.email">newworks.obras@gmail.com</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-address-section">
+                    <h3>Endereço</h3>
+                    <div class="address-info">
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i> 
+                            <span data-i18n="contact.address">Rua Padre Porfiri Alves,148r/c, 4480- Vila do Conde</span>
+                        </p>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Padre+Porfiri+Alves+148,+4480+Vila+do+Conde,+Portugal" target="_blank" class="button white-button maps-button">
+                            <i class="fas fa-map-marked-alt"></i> Ver Rota
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h3 data-i18n="footer.social">Redes Sociais</h3>
+                    <div class="social-icons">
+                        <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">@ Todos os direitos a New Works, obras e remodelações</p>
+                <p class="copyright">
+                    Criado por <a href="https://wa.me/5521993310228?text=Olá%20Danilo%2C%20vim%20através%20do%20site%20New%20Works%2C%20obras%20e%20remodelações%2C%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20seu%20trabalho." target="_blank">Danilo Farias</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Menu hambúrguer para mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const navLinks = document.querySelector('.mobile-nav-links');
+        const mobileLangOptions = document.querySelectorAll('.mobile-lang-option');
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('active');
+            menuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => {
+                const isActive = mobileMenu.classList.contains('active');
+                if (isActive) {
+                    closeMobileMenu();
+                } else {
+                    mobileMenu.classList.add('active');
+                    if (mobileMenuOverlay) mobileMenuOverlay.classList.add('active');
+                    menuToggle.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            if (mobileMenuClose) {
+                mobileMenuClose.addEventListener('click', closeMobileMenu);
+            }
+
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+            }
+
+            if (navLinks) {
+                const navLinksItems = navLinks.querySelectorAll('a');
+                navLinksItems.forEach(link => {
+                    link.addEventListener('click', closeMobileMenu);
+                });
+            }
+
+            mobileLangOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    mobileLangOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    if (window.setLanguage) {
+                        window.setLanguage(lang);
+                        localStorage.setItem('language', lang);
+                    }
+                });
+            });
+        }
+
+
+        // Videos Slider Navigation - Avança 1 vídeo por vez, mostra 3 por vez
+        const videosGrid = document.getElementById('videosGrid');
+        const videosPrev = document.getElementById('videosPrev');
+        const videosNext = document.getElementById('videosNext');
+        const allVideoCards = document.querySelectorAll('.video-card');
+        let currentIndex = 0;
+        const totalVideos = 6;
+        const visibleVideos = 3;
+        const maxIndex = totalVideos - visibleVideos; // Máximo índice: 3 (para mostrar vídeos 4, 5, 6)
+
+        function updateVideosSliderPosition() {
+            if (videosGrid && allVideoCards.length > 0) {
+                // Calcular a largura de um card (incluindo gap)
+                const cardWidth = allVideoCards[0].offsetWidth;
+                const gap = 15;
+                const cardWidthWithGap = cardWidth + gap;
+                
+                // Calcular o deslocamento baseado no índice atual
+                const translateX = -(currentIndex * cardWidthWithGap);
+                videosGrid.style.transform = `translateX(${translateX}px)`;
+                
+                // Atualizar visibilidade das setas
+                if (videosPrev) {
+                    videosPrev.style.opacity = currentIndex === 0 ? '0.5' : '1';
+                    videosPrev.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+                }
+                if (videosNext) {
+                    videosNext.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+                    videosNext.style.pointerEvents = currentIndex >= maxIndex ? 'none' : 'auto';
+                }
+            }
+        }
+
+        if (videosNext) {
+            videosNext.addEventListener('click', () => {
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateVideosSliderPosition();
+                }
+            });
+        }
+
+        if (videosPrev) {
+            videosPrev.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateVideosSliderPosition();
+                }
+            });
+        }
+
+        // Inicializar posição
+        updateVideosSliderPosition();
+        
+        // Recalcular ao redimensionar a janela
+        window.addEventListener('resize', () => {
+            updateVideosSliderPosition();
+        });
+
+        // Blog Modal
+        const blogModal = document.getElementById('blogModal');
+        const blogModalClose = document.getElementById('blogModalClose');
+        const blogModalImage = document.getElementById('blogModalImage');
+        const blogModalTitle = document.getElementById('blogModalTitle');
+        const blogModalText = document.getElementById('blogModalText');
+        const blogCards = document.querySelectorAll('.blog-card[data-blog-index]');
+
+        const blogData = [
+            {
+                image: './img/abra-015.jpeg',
+                title: 'Dia-a-dia New Works: Transformando Ambientes com Pintura de Qualidade',
+                text: 'No dia-a-dia da New Works, cada projeto de pintura é tratado com atenção especial. Nossa equipe trabalha com materiais de alta qualidade e técnicas modernas para garantir acabamentos perfeitos e duradouros. Veja como transformamos espaços residenciais e comerciais em Vila do Conde e região.'
+            },
+            {
+                image: './img/abra-020.jpeg',
+                title: 'Obras em Pladur: Modernidade e Funcionalidade em Cada Projeto',
+                text: 'A New Works especializa-se em trabalhos com pladur, criando divisórias, forros e soluções personalizadas que combinam estética moderna com funcionalidade. Nossos profissionais trabalham com precisão para entregar resultados que superam expectativas, sempre respeitando prazos e orçamentos.'
+            },
+            {
+                image: './img/abra-025.jpeg',
+                title: 'Manutenção Predial: Cuidado Contínuo para Valorização do Imóvel',
+                text: 'A manutenção predial é essencial para preservar e valorizar seu imóvel. Na New Works, oferecemos serviços completos de manutenção, incluindo lavagem de fachadas, reparos e impermeabilização. Nossa experiência de 4 anos garante soluções eficientes e duradouras para edifícios em toda a região do Porto.'
+            }
+        ];
+
+        function openBlogModal(index) {
+            const blog = blogData[index];
+            if (blog) {
+                blogModalImage.src = blog.image;
+                blogModalImage.alt = blog.title;
+                blogModalTitle.textContent = blog.title;
+                blogModalText.textContent = blog.text;
+                blogModal.classList.add('active');
+                document.body.classList.add('blog-modal-open');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeBlogModal() {
+            blogModal.classList.remove('active');
+            document.body.classList.remove('blog-modal-open');
+            document.body.style.overflow = '';
+        }
+
+        // Abrir modal ao clicar no card do blog
+        if (blogCards.length > 0) {
+            blogCards.forEach((card) => {
+                card.addEventListener('click', () => {
+                    const index = parseInt(card.getAttribute('data-blog-index'));
+                    openBlogModal(index);
+                });
+            });
+        }
+
+        // Fechar modal
+        if (blogModalClose) {
+            blogModalClose.addEventListener('click', closeBlogModal);
+        }
+
+        if (blogModal) {
+            blogModal.addEventListener('click', (e) => {
+                if (e.target === blogModal) {
+                    closeBlogModal();
+                }
+            });
+        }
+
+        // Fechar com ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && blogModal && blogModal.classList.contains('active')) {
+                closeBlogModal();
+            }
+            if (e.key === 'Escape' && videoModal && videoModal.classList.contains('active')) {
+                closeVideoModal();
+            }
+        });
+
+        // Video Modal
+        const videoModal = document.getElementById('videoModal');
+        const videoModalClose = document.getElementById('videoModalClose');
+        const videoModalIframe = document.getElementById('videoModalIframe');
+        const videoCards = document.querySelectorAll('.video-card[data-video-id]');
+        let currentVideoIndex = 0;
+        let videoPlayer = null;
+
+        const videoIds = ['LF5gNEP5iw0', '87sI_h-dYqs', '518id10ONVs', '8iKencjs960', 'KSGwaBTecXE', 'd3lg1zDNM9k'];
+
+        function openVideoModal(videoId, index) {
+            currentVideoIndex = index;
+            // Parâmetros para minimizar informações do YouTube
+            // autoplay=1: inicia automaticamente
+            // mute=0: com som
+            // modestbranding=1: remove logo do YouTube
+            // rel=0: não mostra vídeos relacionados
+            // showinfo=0: não mostra informações (deprecated)
+            // controls=1: mostra controles
+            // fs=1: permite fullscreen
+            // iv_load_policy=3: desativa anotações
+            // cc_load_policy=0: desativa legendas
+            // disablekb=0: permite teclado
+            // playsinline=1: reproduz inline
+            // enablejsapi=1: habilita API JavaScript
+            // origin: necessário para segurança
+            const videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&modestbranding=1&rel=0&showinfo=0&controls=1&fs=1&iv_load_policy=3&cc_load_policy=0&disablekb=0&playsinline=1&enablejsapi=1&origin=${window.location.origin}`;
+            videoModalIframe.src = videoUrl;
+            videoModal.classList.add('active');
+            document.body.classList.add('video-modal-open');
+            document.body.style.overflow = 'hidden';
+            
+            // Configurar autoplay sequencial após carregar o vídeo
+            setTimeout(() => {
+                setupVideoAutoplay();
+            }, 1500);
+        }
+
+        function closeVideoModal() {
+            videoModal.classList.remove('active');
+            videoModalIframe.src = '';
+            document.body.classList.remove('video-modal-open');
+            document.body.style.overflow = '';
+            if (videoPlayer) {
+                try {
+                    videoPlayer.destroy();
+                } catch(e) {}
+                videoPlayer = null;
+            }
+        }
+
+        // Abrir modal ao clicar no vídeo
+        if (videoCards.length > 0) {
+            videoCards.forEach((card) => {
+                card.addEventListener('click', () => {
+                    const videoId = card.getAttribute('data-video-id');
+                    const videoIndex = parseInt(card.getAttribute('data-video-index'));
+                    openVideoModal(videoId, videoIndex);
+                });
+            });
+        }
+
+        // Fechar modal de vídeo
+        if (videoModalClose) {
+            videoModalClose.addEventListener('click', closeVideoModal);
+        }
+
+        if (videoModal) {
+            videoModal.addEventListener('click', (e) => {
+                if (e.target === videoModal) {
+                    closeVideoModal();
+                }
+            });
+        }
+
+        // Autoplay sequencial quando vídeo terminar
+        function setupVideoAutoplay() {
+            if (!window.YT || !window.YT.Player) {
+                setTimeout(() => {
+                    if (window.YT && window.YT.Player) {
+                        setupVideoAutoplay();
+                    }
+                }, 500);
+                return;
+            }
+
+            try {
+                if (videoPlayer) {
+                    try {
+                        videoPlayer.destroy();
+                    } catch(e) {}
+                    videoPlayer = null;
+                }
+                
+                const iframe = document.getElementById('videoModalIframe');
+                if (!iframe) {
+                    setTimeout(() => setupVideoAutoplay(), 500);
+                    return;
+                }
+
+                setTimeout(() => {
+                    try {
+                        videoPlayer = new YT.Player(iframe, {
+                            events: {
+                                'onStateChange': function(event) {
+                                    if (event.data === YT.PlayerState.ENDED) {
+                                        // Vídeo terminou, passar para o próximo automaticamente
+                                        currentVideoIndex = (currentVideoIndex + 1) % videoIds.length;
+                                        const nextVideoId = videoIds[currentVideoIndex];
+                                        // Abrir imediatamente o próximo vídeo
+                                        openVideoModal(nextVideoId, currentVideoIndex);
+                                    }
+                                },
+                                'onReady': function(event) {
+                                    // Vídeo pronto - garantir que está tocando
+                                    try {
+                                        event.target.playVideo();
+                                    } catch(e) {}
+                                }
+                            }
+                        });
+                    } catch(e) {
+                        console.log('Erro ao criar player:', e);
+                        setTimeout(() => setupVideoAutoplay(), 1000);
+                    }
+                }, 800);
+            } catch(e) {
+                console.log('Erro ao configurar player:', e);
+                setTimeout(() => setupVideoAutoplay(), 1000);
+            }
+        }
+
+        // Carregar YouTube IFrame API
+        if (!window.YT) {
+            const tag = document.createElement('script');
+            tag.src = 'https://www.youtube.com/iframe_api';
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            
+            window.onYouTubeIframeAPIReady = function() {
+                // API pronta
+            };
+        }
+
+    </script>
+</body>
+</html>
+
