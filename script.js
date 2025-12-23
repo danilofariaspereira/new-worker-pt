@@ -56,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
             'advantages.item4.title': 'Atendimento Personalizado',
             'advantages.item4.text': 'Soluções sob medida para cada cliente, entendendo suas necessidades específicas e oferecendo projetos personalizados. Do planejamento à execução, acompanhamos cada etapa com atenção e cuidado.',
             'footer.social': 'Redes Sociais',
+            'footer.copyright': '@ Todos os direitos a New Works, obras e remodelações',
+            'footer.createdBy': 'Criado por',
             'contact.title': 'Entre em Contato',
             'contact.addressTitle': 'Endereço',
             'contact.routeButton': 'Ver Rota',
@@ -151,6 +153,8 @@ document.addEventListener('DOMContentLoaded', function() {
             'advantages.item4.title': 'Atención Personalizada',
             'advantages.item4.text': 'Soluciones a medida para cada cliente, entendiendo sus necesidades específicas y ofreciendo proyectos personalizados. Desde la planificación hasta la ejecución, acompañamos cada etapa con atención y cuidado.',
             'footer.social': 'Redes Sociales',
+            'footer.copyright': '@ Todos los derechos a New Works, obras y remodelaciones',
+            'footer.createdBy': 'Creado por',
             'contact.title': 'Contacto',
             'contact.addressTitle': 'Dirección',
             'contact.routeButton': 'Ver Ruta',
@@ -187,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'blog.recent': 'Reciente',
             'contact.phone': '(351) 934-106-582',
             'contact.email': 'newworks.obras@gmail.com',
-            'contact.address': 'Rua Padre Porfiri Alves,148r/c, 4480- Vila do Conde',
+            'contact.address': 'Calle Padre Porfiri Alves, 148 r/c, 4480- Vila do Conde',
             'contact.button': 'Enviar Mensaje'
         },
         'en': {
@@ -246,6 +250,8 @@ document.addEventListener('DOMContentLoaded', function() {
             'advantages.item4.title': 'Personalized Service',
             'advantages.item4.text': 'Tailor-made solutions for each client, understanding their specific needs and offering customized projects. From planning to execution, we closely follow each stage with attention and care.',
             'footer.social': 'Social Media',
+            'footer.copyright': '@ All rights to New Works, construction and remodeling',
+            'footer.createdBy': 'Created by',
             'contact.title': 'Contact Us',
             'contact.addressTitle': 'Address',
             'contact.routeButton': 'View Route',
@@ -282,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'blog.recent': 'Recent',
             'contact.phone': '(351) 934-106-582',
             'contact.email': 'newworks.obras@gmail.com',
-            'contact.address': 'Rua Padre Porfiri Alves,148r/c, 4480- Vila do Conde',
+            'contact.address': 'Padre Porfiri Alves Street, 148 r/c, 4480- Vila do Conde',
             'contact.button': 'Send Message'
         }
     };
