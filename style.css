@@ -1514,6 +1514,12 @@ header {
         grid-template-columns: 1fr;
         gap: 20px;
     }
+
+    /* Vídeos - mostrar 1 cartão por vez no mobile */
+    .video-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
