@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'lang.en': 'English',
             'hero.title': 'Obras e Remodelações<br>de Excelência<br>New Works<br>Transformando Espaços<br>com Qualidade e<br>Profissionalismo',
             'about.title': 'Bem-vindo à New Works<br>Obras e Remodelações',
-            'about.description': 'Com 4 anos de experiência e credibilidade, a New Works se destaca no setor da construção civil e remodelação, oferecendo serviços de alta qualidade e soluções personalizadas para cada cliente. <br> <br>Nosso compromisso é transformar espaços com profissionalismo, eficiência e excelência.',
+            'about.description': 'Com 15 anos de experiência e credibilidade, a New Works se destaca no setor da construção civil e remodelação, oferecendo serviços de alta qualidade e soluções personalizadas para cada cliente. <br> <br>Nosso compromisso é transformar espaços com profissionalismo, eficiência e excelência.',
             'button.especialista': 'Falar com um especialista',
             'button.verServicos': 'Ver Todos os Serviços',
             'services.title': 'Nossos Serviços',
