@@ -1132,21 +1132,26 @@ header {
 
 .social-icons {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.social-icons-row {
+    display: flex;
+    gap: 16px;
 }
 
 .social-icons a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 42px;
+    height: 42px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     color: #fff;
-    font-size: 1.5em;
+    font-size: 1.2em;
     transition: all 0.3s ease;
     text-decoration: none;
 }
@@ -1403,6 +1408,10 @@ header {
     }
 
     .social-icons {
+        align-items: center;
+    }
+
+    .social-icons-row {
         justify-content: center;
     }
 
