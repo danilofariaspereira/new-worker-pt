@@ -218,159 +218,21 @@
             font-size: 1.3em;
         }
 
-        .works-gallery {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .works-gallery h2 {
-            font-size: 3em;
-            color: #667eea;
-            text-align: center;
-            margin-bottom: 50px;
-            font-weight: 700;
-        }
-
-        /* Works Slider */
-        .works-slider-container {
-            position: relative;
-            max-width: 1300px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .works-slider {
-            display: flex;
-            transition: transform 0.5s ease;
-            width: 100%;
-        }
-
-        .works-slider-wrapper {
+        /* Galeria de imagens dentro de cada serviço (estilo portfólio) */
+        .service-detail-gallery {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 15px;
-            min-width: 100%;
-            flex-shrink: 0;
-            padding: 0 10px;
-            box-sizing: border-box;
-            max-height: 600px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-bottom: 25px;
         }
 
-        .work-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            aspect-ratio: 1;
+        .service-detail-gallery img {
             width: 100%;
-            height: 100%;
-            max-height: 280px;
-        }
-
-        .work-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
-        }
-
-        .work-item img {
-            width: 100%;
-            height: 100%;
+            height: 190px;
             object-fit: cover;
-            object-position: center;
-            transition: transform 0.3s ease;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
             display: block;
-        }
-
-        .work-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Modal/Lightbox */
-        .lightbox-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 10000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .lightbox-modal.active {
-            display: flex;
-        }
-
-        .lightbox-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-        .lightbox-image {
-            max-width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            border-radius: 10px;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #fff;
-            font-size: 3em;
-            cursor: pointer;
-            z-index: 10001;
-            background: rgba(0, 0, 0, 0.5);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .lightbox-close:hover {
-            background: rgba(0, 0, 0, 0.8);
-            transform: rotate(90deg);
-        }
-
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #fff;
-            font-size: 3em;
-            cursor: pointer;
-            background: rgba(0, 0, 0, 0.5);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 10001;
-        }
-
-        .lightbox-nav:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .lightbox-prev {
-            left: 30px;
-        }
-
-        .lightbox-next {
-            right: 30px;
         }
 
         @media (max-width: 768px) {
@@ -409,35 +271,12 @@
                 align-items: flex-start;
             }
 
-            .works-slider-wrapper {
+            .service-detail-gallery {
                 grid-template-columns: 1fr;
-                grid-template-rows: repeat(6, 1fr);
             }
 
-            .work-item {
-                aspect-ratio: 1;
-            }
-
-            .lightbox-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 2em;
-            }
-
-            .lightbox-prev {
-                left: 10px;
-            }
-
-            .lightbox-next {
-                right: 10px;
-            }
-
-            .lightbox-close {
-                top: 10px;
-                right: 15px;
-                width: 40px;
-                height: 40px;
-                font-size: 2em;
+            .service-detail-gallery img {
+                height: 220px;
             }
         }
 
@@ -547,6 +386,12 @@
                     <li data-i18n="services.pintura.item2">Acabamentos refinados e duradouros</li>
                     <li data-i18n="services.pintura.item3">Aplicação de tintas especiais e texturas</li>
                 </ul>
+                <div class="service-detail-gallery">
+                    <img src="./img/abra-010.jpeg" alt="Pintura residencial em edifício, vista geral da fachada">
+                    <img src="./img/abra-011.jpeg" alt="Pintura de fachada com acabamento profissional">
+                    <img src="./img/abra-012.jpeg" alt="Detalhe de pintura em edifício residencial">
+                    <img src="./img/abra-013.jpeg" alt="Resultado final de pintura externa concluída">
+                </div>
                 <a href="https://wa.me/351934106582?text=Olá%20Fernando%2C%20vim%20através%20do%20site%20da%20New%20Works%2C%20gostaria%20de%20saber%20mais%20informações%20sobre%20o%20seu%20serviço." target="_blank" class="button blue-button" data-i18n="button.especialista">Falar com um especialista</a>
             </div>
 
@@ -557,6 +402,12 @@
                     <li data-i18n="services.pladur.item2">Tetos falsos e paredes em gesso cartonado</li>
                     <li data-i18n="services.pladur.item3">Soluções personalizadas para ambientes modernos</li>
                 </ul>
+                <div class="service-detail-gallery">
+                    <img src="./img/abra-014.jpeg" alt="Divisórias em pladur instaladas em ambiente comercial">
+                    <img src="./img/abra-015.jpeg" alt="Teto falso em pladur com acabamento alinhado">
+                    <img src="./img/abra-016.jpeg" alt="Estrutura de pladur em fase de montagem">
+                    <img src="./img/abra-017.jpeg" alt="Ambiente finalizado com paredes em gesso cartonado">
+                </div>
                 <a href="https://wa.me/351934106582?text=Olá%20Fernando%2C%20vim%20através%20do%20site%20da%20New%20Works%2C%20gostaria%20de%20saber%20mais%20informações%20sobre%20o%20seu%20serviço." target="_blank" class="button blue-button" data-i18n="button.especialista">Falar com um especialista</a>
             </div>
 
@@ -567,6 +418,12 @@
                     <li data-i18n="services.pichelaria.item2">Reparação de vazamentos e entupimentos</li>
                     <li data-i18n="services.pichelaria.item3">Sistemas de aquecimento de água</li>
                 </ul>
+                <div class="service-detail-gallery">
+                    <img src="./img/abra-018.jpeg" alt="Intervenção em sistema hidráulico residencial">
+                    <img src="./img/abra-019.jpeg" alt="Manutenção de tubulações em área técnica">
+                    <img src="./img/abra-020.jpeg" alt="Reparação de canalização com acabamento limpo">
+                    <img src="./img/abra-021.jpeg" alt="Equipamentos e tubagens após instalação hidráulica">
+                </div>
                 <a href="https://wa.me/351934106582?text=Olá%20Fernando%2C%20vim%20através%20do%20site%20da%20New%20Works%2C%20gostaria%20de%20saber%20mais%20informações%20sobre%20o%20seu%20serviço." target="_blank" class="button blue-button" data-i18n="button.especialista">Falar com um especialista</a>
             </div>
 
@@ -577,6 +434,12 @@
                     <li data-i18n="services.verticais.item2">Manutenção e reparação de edifícios</li>
                     <li data-i18n="services.verticais.item3">Soluções para conservação e valorização do imóvel</li>
                 </ul>
+                <div class="service-detail-gallery">
+                    <img src="./img/abra-022.jpeg" alt="Equipe realizando manutenção predial em altura">
+                    <img src="./img/abra-023.jpeg" alt="Lavagem técnica de fachadas em edifício comercial">
+                    <img src="./img/abra-024.jpeg" alt="Trabalho vertical com equipamentos de segurança">
+                    <img src="./img/abra-025.jpeg" alt="Vista geral de fachada após manutenção">
+                </div>
                 <a href="https://wa.me/351934106582?text=Olá%20Fernando%2C%20vim%20através%20do%20site%20da%20New%20Works%2C%20gostaria%20de%20saber%20mais%20informações%20sobre%20o%20seu%20serviço." target="_blank" class="button blue-button" data-i18n="button.especialista">Falar com um especialista</a>
             </div>
 
@@ -587,6 +450,12 @@
                     <li data-i18n="services.impermeabilizacao.item2">Tratamento de lajes, telhados e fachadas</li>
                     <li data-i18n="services.impermeabilizacao.item3">Aplicação de membranas impermeáveis</li>
                 </ul>
+                <div class="service-detail-gallery">
+                    <img src="./img/abra-026.jpeg" alt="Aplicação de manta asfáltica em cobertura">
+                    <img src="./img/abra-027.jpeg" alt="Impermeabilização de laje com material técnico">
+                    <img src="./img/abra-028.jpeg" alt="Área externa após tratamento contra infiltrações">
+                    <img src="./img/abra-029.jpeg" alt="Detalhe de impermeabilização concluída em telhado">
+                </div>
                 <a href="https://wa.me/351934106582?text=Olá%20Fernando%2C%20vim%20através%20do%20site%20da%20New%20Works%2C%20gostaria%20de%20saber%20mais%20informações%20sobre%20o%20seu%20serviço." target="_blank" class="button blue-button" data-i18n="button.especialista">Falar com um especialista</a>
             </div>
 
@@ -597,31 +466,14 @@
                     <li data-i18n="services.gerais.item2">Remodelações e melhorias em espaços diversos</li>
                     <li data-i18n="services.gerais.item3">Soluções personalizadas para cada necessidade</li>
                 </ul>
+                <div class="service-detail-gallery">
+                    <img src="./img/abra-030.jpeg" alt="Antes e depois de remodelação de fachada">
+                    <img src="./img/abra-031.jpeg" alt="Trabalhos gerais de acabamento em estrutura predial">
+                    <img src="./img/abra-032.jpeg" alt="Detalhe de intervenção geral em área externa">
+                    <img src="./img/abra-033.jpeg" alt="Serviço concluído demonstrando qualidade de acabamento">
+                </div>
                 <a href="https://wa.me/351934106582?text=Olá%20Fernando%2C%20vim%20através%20do%20site%20da%20New%20Works%2C%20gostaria%20de%20saber%20mais%20informações%20sobre%20o%20seu%20serviço." target="_blank" class="button blue-button" data-i18n="button.especialista">Falar com um especialista</a>
             </div>
-        </div>
-
-        <div class="works-gallery">
-            <h2 data-i18n="works.title">Nossas Obras</h2>
-            <div class="works-slider-container">
-                <div class="works-slider" id="worksSlider">
-                    <!-- As imagens serão inseridas via JavaScript -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Lightbox Modal -->
-        <div class="lightbox-modal" id="lightboxModal">
-            <button class="lightbox-close" id="lightboxClose">&times;</button>
-            <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <div class="lightbox-content">
-                <img src="" alt="Obra" class="lightbox-image" id="lightboxImage">
-            </div>
-            <button class="lightbox-nav lightbox-next" id="lightboxNext">
-                <i class="fas fa-chevron-right"></i>
-            </button>
         </div>
     </section>
 
@@ -745,137 +597,6 @@
             });
         }
 
-        // Carregar imagens das obras (abra-010 a abra-040) e criar slider
-        const worksSlider = document.getElementById('worksSlider');
-        const lightboxModal = document.getElementById('lightboxModal');
-        const lightboxImage = document.getElementById('lightboxImage');
-        const lightboxClose = document.getElementById('lightboxClose');
-        const lightboxPrev = document.getElementById('lightboxPrev');
-        const lightboxNext = document.getElementById('lightboxNext');
-        
-        let allWorksImages = [];
-        let currentImageIndex = 0;
-        let sliderInterval;
-        let currentSlide = 0;
-        const imagesPerSlide = 6; // 3x2 grid (3 colunas, 2 linhas)
-
-        // Função para criar slider de obras
-        function createWorksSlider() {
-            if (!worksSlider) return;
-
-            // Carregar imagens de abra-010 até abra-040
-            for (let i = 10; i <= 40; i++) {
-                const num = i.toString().padStart(3, '0');
-                allWorksImages.push({
-                    src: `./img/abra-${num}.jpeg`,
-                    alt: `Obra ${i}`
-                });
-            }
-
-            // Criar slides (6 imagens por slide: 3x2 grid)
-            const totalSlides = Math.ceil(allWorksImages.length / imagesPerSlide);
-            
-            for (let slideIndex = 0; slideIndex < totalSlides; slideIndex++) {
-                const slideWrapper = document.createElement('div');
-                slideWrapper.className = 'works-slider-wrapper';
-                
-                for (let i = 0; i < imagesPerSlide; i++) {
-                    const imageIndex = slideIndex * imagesPerSlide + i;
-                    if (imageIndex < allWorksImages.length) {
-                        const workItem = document.createElement('div');
-                        workItem.className = 'work-item';
-                        workItem.dataset.index = imageIndex;
-                        workItem.innerHTML = `
-                            <img src="${allWorksImages[imageIndex].src}" alt="${allWorksImages[imageIndex].alt}" onerror="this.style.display='none'">
-                        `;
-                        
-                        workItem.addEventListener('click', () => {
-                            openLightbox(imageIndex);
-                        });
-                        
-                        slideWrapper.appendChild(workItem);
-                    }
-                }
-                
-                worksSlider.appendChild(slideWrapper);
-            }
-
-            // Auto-play slider
-            startSlider();
-        }
-
-        function startSlider() {
-            const totalSlides = Math.ceil(allWorksImages.length / imagesPerSlide);
-            if (totalSlides <= 1) return; // Não precisa de autoplay se só tem um slide
-            
-            sliderInterval = setInterval(() => {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                updateSliderPosition();
-            }, 5000); // Muda a cada 5 segundos
-        }
-
-        function updateSliderPosition() {
-            worksSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-
-        // Lightbox functions
-        function openLightbox(index) {
-            currentImageIndex = index;
-            lightboxImage.src = allWorksImages[index].src;
-            lightboxImage.alt = allWorksImages[index].alt;
-            lightboxModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            clearInterval(sliderInterval);
-        }
-
-        function closeLightbox() {
-            lightboxModal.classList.remove('active');
-            document.body.style.overflow = '';
-            startSlider();
-        }
-
-        function showNextImage() {
-            currentImageIndex = (currentImageIndex + 1) % allWorksImages.length;
-            lightboxImage.src = allWorksImages[currentImageIndex].src;
-            lightboxImage.alt = allWorksImages[currentImageIndex].alt;
-        }
-
-        function showPrevImage() {
-            currentImageIndex = (currentImageIndex - 1 + allWorksImages.length) % allWorksImages.length;
-            lightboxImage.src = allWorksImages[currentImageIndex].src;
-            lightboxImage.alt = allWorksImages[currentImageIndex].alt;
-        }
-
-        // Event listeners
-        if (lightboxClose) {
-            lightboxClose.addEventListener('click', closeLightbox);
-        }
-
-        if (lightboxNext) {
-            lightboxNext.addEventListener('click', showNextImage);
-        }
-
-        if (lightboxPrev) {
-            lightboxPrev.addEventListener('click', showPrevImage);
-        }
-
-        if (lightboxModal) {
-            lightboxModal.addEventListener('click', (e) => {
-                if (e.target === lightboxModal) {
-                    closeLightbox();
-                }
-            });
-        }
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (lightboxModal.classList.contains('active')) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowRight') showNextImage();
-                if (e.key === 'ArrowLeft') showPrevImage();
-            }
-        });
-
         // Scroll indicator click
         const scrollIndicator = document.querySelector('.scroll-indicator');
         if (scrollIndicator) {
@@ -883,9 +604,6 @@
                 document.querySelector('.services-page').scrollIntoView({ behavior: 'smooth' });
             });
         }
-
-        // Initialize
-        createWorksSlider();
     </script>
 </body>
 </html>

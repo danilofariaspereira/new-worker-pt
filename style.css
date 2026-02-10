@@ -841,6 +841,84 @@ header {
     line-height: 1.6;
 }
 
+/* Services as portfolio (Home) */
+.services-portfolio {
+    max-width: 1300px;
+    margin: 50px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.service-portfolio-item {
+    display: block;
+}
+
+.service-portfolio-text {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px 24px 26px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+
+.service-portfolio-text h3 {
+    font-size: 1.7em;
+    color: #1f2937;
+    margin-bottom: 15px;
+}
+
+.service-portfolio-text p {
+    font-size: 1em;
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.service-portfolio-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px;
+}
+
+.service-portfolio-text ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    font-size: 0.98em;
+    color: #374151;
+}
+
+.service-portfolio-text ul li::before {
+    content: '•';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    color: #3b82f6;
+    font-size: 1.1em;
+}
+
+.service-portfolio-text .button {
+    margin-top: 4px;
+    padding: 10px 24px;
+    font-size: 0.95em;
+}
+
+.service-portfolio-gallery {
+    margin: 18px 0 10px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.service-portfolio-gallery img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
+
 .services-cta {
     margin-top: 40px;
 }
@@ -1287,30 +1365,27 @@ header {
         margin-bottom: 30px;
         padding: 0 10px;
     }
-
-    .services-preview-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
+    
+    .services-portfolio {
+        margin-top: 35px;
+        gap: 30px;
     }
 
-    .service-card {
-        padding: 30px 20px;
+    .service-portfolio-text {
+        padding: 24px 20px;
     }
 
-    .service-card i {
-        font-size: 2.5em;
+    .service-portfolio-text h3 {
+        font-size: 1.4em;
     }
-
-    .service-card h3 {
-        font-size: 1.3em;
+    
+    .service-portfolio-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
     }
-
-    .service-card p {
-        font-size: 0.95em;
+    
+    .service-portfolio-gallery img {
+        height: 140px;
     }
 
     /* Advantages Section Mobile */
