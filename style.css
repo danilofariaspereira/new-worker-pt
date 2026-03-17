@@ -355,29 +355,9 @@ header {
         pointer-events: all;
     }
 
+    /* Botão de fechar interno (X grande) escondido — usamos apenas o X menor do menu */
     .mobile-menu-close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
-        background: #f3f4f6;
-        border: none;
-        border-radius: 50%;
-    display: flex;
-    align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        z-index: 1001;
-        font-size: 24px;
-        color: #1f2937;
-        font-weight: bold;
-    }
-
-    .mobile-menu-close:hover {
-        background: #e5e7eb;
-        transform: rotate(90deg);
+        display: none;
     }
 
 
