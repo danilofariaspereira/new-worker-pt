@@ -1365,6 +1365,12 @@ header {
         margin-bottom: 30px;
         padding: 0 10px;
     }
+
+    /* grid antigo de serviços na Home: 1 card por linha no mobile */
+    .services-preview-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
     
     .services-portfolio {
         margin-top: 35px;
